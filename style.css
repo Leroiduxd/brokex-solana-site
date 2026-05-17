@@ -1,23 +1,13 @@
 :root {
-    --bg-light: #ffffff;
-    --bg-subtle: #f9f9f9;
-    --gold: #c8a97e;
-    --gold-bright: #d4af37;
-    --gold-deep: #b89566;
-    --text-dark: #111111;
-    --text-grey: #666666;
-    --grid-color: rgba(0, 0, 0, 0.08);
-    --font-main: 'Inter', sans-serif;
-}
-
-[data-theme="dark"] {
     --bg-light: #0d0d0d;
     --bg-subtle: #141414;
+    --gold: #b89566;
+    --gold-bright: #d4af37;
+    --gold-deep: #b89566;
     --text-dark: #f5f5f5;
     --text-grey: #888888;
     --grid-color: rgba(255, 255, 255, 0.15);
-    --gold: #b89566;
-    /* Slightly deeper gold for dark mode */
+    --font-main: 'Inter', sans-serif;
 }
 
 
@@ -59,25 +49,7 @@ body::before {
     z-index: 9999;
 }
 
-[data-theme="dark"] .btn-secondary {
-    background: var(--bg-subtle);
-    border-color: #333;
-}
 
-[data-theme="dark"] .btn-trade {
-    background-color: #111111;
-    border-color: #222;
-}
-
-[data-theme="dark"] .btn-trade:hover {
-    background-color: #1a1a1a;
-    border-color: var(--gold);
-}
-
-[data-theme="dark"] .btn-text,
-[data-theme="dark"] .text-reveal {
-    color: var(--text-dark);
-}
 
 .app-container {
     width: 100vw;
@@ -325,11 +297,11 @@ body::before {
     /* Reduced width */
     height: 50px;
     /* Slightly shorter */
-    background-color: #f4f4f4;
+    background-color: #111111;
     /* Project Grey */
     border-radius: 0;
     /* Sharp corners */
-    border: 1.5px solid #eeeeee;
+    border: 1.5px solid #222;
     cursor: pointer;
     overflow: hidden;
     padding: 0;
@@ -398,7 +370,7 @@ body::before {
     align-items: center;
     padding-left: 85px;
     /* Moved further to the right */
-    color: #111111;
+    color: var(--text-dark);
     font-size: 0.75rem;
     /* Smaller text */
     font-weight: 800;
@@ -411,7 +383,8 @@ body::before {
 
 /* HOVER EFFECTS */
 .btn-trade:hover {
-    background-color: #ebebeb;
+    background-color: #1a1a1a;
+    border-color: var(--gold);
 }
 
 .btn-trade:hover .icon-box {
@@ -440,9 +413,9 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: white;
+    background: var(--bg-subtle);
     color: var(--text-dark);
-    border: 1px solid #dddddd;
+    border: 1px solid #333;
     padding: 0 30px;
     /* Reduced padding */
     height: 50px;
@@ -460,14 +433,9 @@ body::before {
 }
 
 .btn-secondary:hover {
+    background: var(--bg-subtle);
     border-color: var(--gold);
     color: var(--gold);
-    background: white;
-}
-
-.btn-secondary:hover {
-    background: var(--bg-subtle);
-    border-color: #ccc;
 }
 
 .copyright-grid {
@@ -986,9 +954,9 @@ body::before {
     }
 
     .mobile-view .btn-trade {
-        background-color: var(--text-dark);
-        color: var(--bg-light);
-        border: 1px solid var(--text-dark);
+        background-color: var(--gold);
+        border-color: var(--gold);
+        color: #111;
         position: relative;
         overflow: hidden;
     }
@@ -1001,18 +969,6 @@ body::before {
     }
 
     .mobile-view .btn-secondary {
-        background-color: transparent;
-        border: 1px solid var(--text-grey);
-        color: var(--text-dark);
-    }
-
-    [data-theme="dark"] .mobile-view .btn-trade {
-        background-color: var(--gold);
-        border-color: var(--gold);
-        color: #111;
-    }
-
-    [data-theme="dark"] .mobile-view .btn-secondary {
         background: rgba(255, 255, 255, 0.03);
         border-color: rgba(255, 255, 255, 0.1);
         color: var(--text-dark);

@@ -46,30 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(type, typeSpeed);
     }
 
-    // Theme Toggle Logic
-    const themeToggles = document.querySelectorAll('.theme-toggle-btn');
-    const htmlElement = document.documentElement;
 
-    themeToggles.forEach(btn => {
-        btn.addEventListener('click', () => {
-            if (htmlElement.getAttribute('data-always-dark') === 'true') return;
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            htmlElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-        });
-    });
-
-    // Load saved theme
-    const alwaysDark = htmlElement.getAttribute('data-always-dark') === 'true';
-    if (alwaysDark) {
-        htmlElement.setAttribute('data-theme', 'dark');
-    } else {
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            htmlElement.setAttribute('data-theme', savedTheme);
-        }
-    }
 
     // Mobile Menu Logic
     const menuToggle = document.getElementById('menu-toggle');
