@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     themeToggles.forEach(btn => {
         btn.addEventListener('click', () => {
+            if (htmlElement.getAttribute('data-always-dark') === 'true') return;
             const currentTheme = htmlElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
             htmlElement.setAttribute('data-theme', newTheme);
@@ -60,9 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Load saved theme
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        htmlElement.setAttribute('data-theme', savedTheme);
+    const alwaysDark = htmlElement.getAttribute('data-always-dark') === 'true';
+    if (alwaysDark) {
+        htmlElement.setAttribute('data-theme', 'dark');
+    } else {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            htmlElement.setAttribute('data-theme', savedTheme);
+        }
     }
 
     // Mobile Menu Logic
